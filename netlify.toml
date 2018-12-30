@@ -1,0 +1,20 @@
+[build]
+
+    publish = "public/"
+
+    command = "eval \"$(gimme)\" && ./build.sh"
+
+    environment = { GIMME_GO_VERSION = "1.11.4" }
+
+    functions = "functions/dist/"
+
+[[redirects]]
+    from = "https://modest-goldstine-32a63a.netlify.com/*"
+    to = "https://eternalflame.info/:splat"
+    status = 301
+    force = true
+[[redirects]]
+    from = "http://badge.eternalflame.info/*"
+    to = "https://badge.eternalflame.info/:splat"
+    status = 301
+    force = true
