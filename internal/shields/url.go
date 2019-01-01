@@ -11,6 +11,7 @@ type B struct {
 	Subject        string
 	Status         string
 	Color          string
+	Style          string
 	Logo           *Logo
 	Link           *Link
 	ColorLOverride string
@@ -32,6 +33,9 @@ func escape(s string) string {
 func URL(badge B) string {
 	u := fmt.Sprintf("https://img.shields.io/badge/%s-%s-%s.svg", escape(badge.Subject), escape(badge.Status), escape(badge.Color))
 	query := make(url.Values)
+	if badge.Style != "" {
+		query.Set("style", badge.Style)
+	}
 	if badge.ColorLOverride != "" {
 		query.Set("colorA", badge.ColorLOverride)
 	}
